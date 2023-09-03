@@ -1,10 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
+import { Element } from "react-scroll";
 
 const StyledPartners = styled("div")({
   padding: "20px 100px",
   width: "100%",
+  "@media (max-width: 1100px)": {
+    padding: "15px 75px",
+  },
+  "@media (max-width: 800px)": {
+    padding: "5px 20px",
+  },
 });
 
 const StyledPartnersHeader = styled("div")({
@@ -19,6 +26,12 @@ const StyledPartnersHeader = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  "@media (max-width: 1100px)": {
+    fontSize: "28px",
+  },
+  "@media (max-width: 800px)": {
+    fontSize: "22px",
+  },
 });
 
 const StyledPartnersContainer = styled("div")({
@@ -43,25 +56,27 @@ const StyledPartnersContainer = styled("div")({
 
 const PartnerSection = () => {
   return (
-    <StyledPartners>
-      <StyledPartnersHeader>
-        Our growing partnerships connects us to the world 
-      </StyledPartnersHeader>
-      <StyledPartnersContainer>
-        <div
-          style={{
-            padding: "150px 0",
-          }}
-        >
-          <span className="line-1">
-            We are for you <br />
-          </span>
-          <span className="line-2">
-            Don't just take our <br /> word for it
-          </span>
-        </div>
-      </StyledPartnersContainer>
-    </StyledPartners>
+    <Element name="partners">
+      <StyledPartners>
+        <StyledPartnersHeader>
+          Our growing partnerships connects us to the world 
+        </StyledPartnersHeader>
+        <StyledPartnersContainer>
+          <div
+            style={{
+              padding: "150px 0",
+            }}
+          >
+            <span className="line-1">
+              We are for you <br />
+            </span>
+            <span className="line-2">
+              Don't just take our <br /> word for it
+            </span>
+          </div>
+        </StyledPartnersContainer>
+      </StyledPartners>
+    </Element>
   );
 };
 

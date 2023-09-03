@@ -13,8 +13,14 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { FAQs } from "./constants";
 
 const StyledFaq = styled("div")({
-  padding: "20px 200px",
+  padding: "50px 200px",
   width: "100%",
+  "@media (max-width: 1100px)": {
+    padding: "50px 50px",
+  },
+  "@media (max-width: 800px)": {
+    padding: "50px 25px",
+  },
 });
 
 const StyledFaqHeader = styled("div")({
@@ -29,6 +35,12 @@ const StyledFaqHeader = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  "@media (max-width: 1100px)": {
+    fontSize: "34px",
+  },
+  "@media (max-width: 800px)": {
+    fontSize: "24px",
+  },
 });
 
 const StyledFaqContent = styled("div")({
@@ -49,6 +61,22 @@ const StyledFaqContent = styled("div")({
   },
   "& .MuiPaper-root": {
     boxShadow: "none",
+  },
+  "@media (max-width: 1100px)": {
+    "& .accordion-title": {
+      fontSize: "14px",
+    },
+    "& .accordion-content": {
+      fontSize: "10px",
+    },
+  },
+  "@media (max-width: 800px)": {
+    "& .accordion-title": {
+      fontSize: "12px",
+    },
+    "& .accordion-content": {
+      fontSize: "9px",
+    },
   },
 });
 
