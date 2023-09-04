@@ -153,8 +153,6 @@ const StyledPartnersContainer = styled("div")({
 });
 
 const TokenContainer = styled(Box)({
-  background: "gray",
-
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -172,7 +170,6 @@ const ExchangeContainer = styled(Box)({
   alignItems: "center",
   justifyContent: "center",
   gap: "60px",
-  background: "black",
   "@media (max-width: 1100px)": {
     "& img": {
       width: "125px",
