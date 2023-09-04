@@ -7,7 +7,6 @@ import PartnerSection from "./components/PartnersSection/PartnerSection";
 import ServiceSection from "./components/ServicesSection/ServiceSection";
 
 import AnimatedCursor from "react-animated-cursor";
-import { theme } from "./theme";
 
 function App() {
   return (

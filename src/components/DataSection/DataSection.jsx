@@ -112,7 +112,7 @@ const DataSection = () => {
         <StyledDataContent>
           <Box>
             $
-            {onceViewed === false && isInView ? (
+            {isInView ? (
               <CountUp end={5} duration={3} onEnd={() => setOnceViewed(true)} />
             ) : (
               5
@@ -126,7 +126,7 @@ const DataSection = () => {
         <StyledDataContent>
           <Box>
             $
-            {onceViewed === false && isInView ? (
+            {isInView ? (
               <CountUp
                 end={100}
                 duration={3}
@@ -142,7 +142,7 @@ const DataSection = () => {
         <StyledDataContent>
           <Box>
             $
-            {onceViewed === false && isInView ? (
+            {isInView ? (
               <CountUp
                 end={200}
                 duration={3}
@@ -159,7 +159,7 @@ const DataSection = () => {
         </StyledDataContent>
         <StyledDataContent>
           <Box>
-            {onceViewed === false && isInView ? (
+            {isInView ? (
               <CountUp
                 end={400}
                 duration={3}
@@ -167,7 +167,7 @@ const DataSection = () => {
               />
             ) : (
               400
-            )}{" "}
+            )}
             +
           </Box>
           <StyledDataContentDetail>Pairs Traded </StyledDataContentDetail>
