@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
@@ -8,6 +8,8 @@ import TelegramIcon from "../../assets/icons/telegram.svg";
 import TwitterIcon from "../../assets/icons/twitter.svg";
 import { Button, TextField, Typography } from "@mui/material";
 import { Element } from "react-scroll";
+
+import axios from "axios";
 
 const StyledFooter = styled("div")({
   padding: "50px 200px",
@@ -140,6 +142,28 @@ const StyledTnC = styled("div")({
 });
 
 const Footer = () => {
+  const [formValue, setFormValue] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const sendForm = () => {
+    if (!Object.values(formValue).every((value) => !!value)) {
+      // Please fill all the fields
+      return;
+    }
+
+    axios
+      .post("http://localhost:3001/send-email", formValue)
+      .then((response) => {
+        console.log({ response });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <Element name="contactUs">
       <StyledFooter>
@@ -204,23 +228,32 @@ const Footer = () => {
             <Typography className="title">Contact Us</Typography>
             <TextField
               className="inputField"
-              id="standard-basic"
+              id="name"
               label="Name"
               variant="standard"
+              onChange={(e) => {
+                setFormValue((prev) => ({ ...prev, name: e.target.value }));
+              }}
             />
             <TextField
               className="inputField"
-              id="standard-basic"
+              id="email"
               label="Email"
               variant="standard"
+              onChange={(e) => {
+                setFormValue((prev) => ({ ...prev, email: e.target.value }));
+              }}
             />
             <TextField
               className="inputField"
-              id="standard-basic"
+              id="message"
               label="Message"
               variant="standard"
+              onChange={(e) => {
+                setFormValue((prev) => ({ ...prev, message: e.target.value }));
+              }}
             />
-            <Button>Send</Button>
+            <Button onClick={() => sendForm()}>Send</Button>
           </StyledContactUs>
         </StyledFooterContainer>
         <hr />

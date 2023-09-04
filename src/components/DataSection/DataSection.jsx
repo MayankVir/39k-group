@@ -49,7 +49,7 @@ const StyledDataContentContainer = styled(Box)({
     justifyContent: "center",
     width: "600px",
     gap: "45px",
-    margin: "50px 0",
+    margin: "25px 0",
     flex: 1,
   },
 

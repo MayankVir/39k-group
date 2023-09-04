@@ -114,13 +114,24 @@ const Hero = () => {
       <StyledHero>
         <StyledVideo src={BGVideo} muted autoPlay loop />
         <StyledHeadline>
-          <StyledHeadlineFirst className="drop-in">
-            Empowering
-          </StyledHeadlineFirst>
-
-          <StyledHeadlineSecond className="drop-in-2">
-            Blockchain Adoption
-          </StyledHeadlineSecond>
+          <div
+            style={{
+              overflow: "hidden",
+            }}
+          >
+            <StyledHeadlineFirst className="drop-in">
+              Empowering
+            </StyledHeadlineFirst>
+          </div>
+          <div
+            style={{
+              overflow: "hidden",
+            }}
+          >
+            <StyledHeadlineSecond className="drop-in-2">
+              Blockchain Adoption
+            </StyledHeadlineSecond>
+          </div>
         </StyledHeadline>
         <StyledTagline className="fadeIn1000ms ">
           39k Group is a high frequency trading firm engaged in digital asset
