@@ -261,11 +261,11 @@
 }
 
 .stripAnimation {
-  animation: strip 360s linear infinite;
+  animation: strip 80s linear infinite;
 }
 
 .stripAnimationLonger {
-  animation: strip 420s linear infinite;
+  animation: strip 120s linear infinite;
 }
 
 @keyframes strip {
@@ -278,10 +278,10 @@
 }
 
 .stripAnimationX {
-  animation: stripX 240s linear infinite;
+  animation: stripX 80s linear infinite;
 }
 .stripAnimationLongerX {
-  animation: strip 360s linear infinite;
+  animation: strip 120s linear infinite;
 }
 
 @keyframes stripX {

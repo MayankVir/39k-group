@@ -113,7 +113,7 @@ const DataSection = () => {
           <Box>
             $
             {isInView ? (
-              <CountUp end={5} duration={3} onEnd={() => setOnceViewed(true)} />
+              <CountUp end={5} duration={7} onEnd={() => setOnceViewed(true)} />
             ) : (
               5
             )}

@@ -120,7 +120,7 @@ const StyledPartnersHeader = styled("div")({
 const StyledPartnersContainer = styled("div")({
   display: "flex",
   justifyContent: "space-between",
-  alignItems: "center",
+  alignItems: "flex-start",
   margin: "20px 0",
   width: "100%",
   background: `linear-gradient(90deg, ${theme.colors.$primary} 0%, ${theme.colors.$white} 100%)`,
@@ -153,6 +153,8 @@ const StyledPartnersContainer = styled("div")({
 });
 
 const TokenContainer = styled(Box)({
+  background: "gray",
+
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -161,7 +163,7 @@ const TokenContainer = styled(Box)({
 
   "@media (max-width: 800px)": {
     flexDirection: "row",
-    animation: "stripX 360s linear infinite",
+    animation: "stripX 30s linear infinite",
   },
 });
 const ExchangeContainer = styled(Box)({
@@ -170,6 +172,7 @@ const ExchangeContainer = styled(Box)({
   alignItems: "center",
   justifyContent: "center",
   gap: "60px",
+  background: "black",
   "@media (max-width: 1100px)": {
     "& img": {
       width: "125px",
@@ -179,13 +182,14 @@ const ExchangeContainer = styled(Box)({
     flexDirection: "row",
     gap: "20px",
     height: "100px",
-    animation: "stripX 420s linear infinite",
+    animation: "stripX 40s linear infinite",
     "& img": {
       width: "100px",
     },
   },
 });
 const ExchangeTokenContainer = styled(Box)({
+  alignItems: "flex-start",
   display: "flex",
   gap: "100px",
   "@media (max-width: 1100px)": {
@@ -210,7 +214,14 @@ const PartnerSection = () => {
           Our growing partnerships connects us to the world 
         </StyledPartnersHeader>
         <StyledPartnersContainer>
-          <div>
+          <div
+            style={{
+              height: "100%",
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
             <span className="line-1">
               We are for you <br />
             </span>
@@ -220,30 +231,12 @@ const PartnerSection = () => {
           </div>
           <ExchangeTokenContainer>
             <ExchangeContainer className="stripAnimationLonger">
-              {[
-                ...allExchanges,
-                ...allExchanges,
-                ...allExchanges,
-                ...allExchanges,
-                ...allExchanges,
-                ...allExchanges,
-                ...allExchanges,
-                ...allExchanges,
-                ...allExchanges,
-              ].map((exchange) => (
+              {[...allExchanges, ...allExchanges].map((exchange) => (
                 <img src={exchange} alt={"exchange"} width={"150px"} />
               ))}
             </ExchangeContainer>
             <TokenContainer className="stripAnimation">
-              {[
-                ...allTokens,
-                ...allTokens,
-                ...allTokens,
-                ...allTokens,
-                ...allTokens,
-                ...allTokens,
-                ...allTokens,
-              ].map((token) => (
+              {[...allTokens, ...allTokens].map((token) => (
                 <img src={token} alt={"token"} width={"200px"} />
               ))}
             </TokenContainer>
