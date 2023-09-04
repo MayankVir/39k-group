@@ -12,23 +12,23 @@ import { theme } from "./theme";
 function App() {
   return (
     <div className="App">
-      {/* <AnimatedCursor
-        // color="256,256,256"
+      <AnimatedCursor
+        color="203,256,123"
         innerSize={20}
         outerSize={75}
         innerScale={1}
         outerScale={1.7}
-        outerAlpha={0}
+        // outerAlpha={0}
         // outerStyle={{
         //   mixBlendMode: "exclusion",
         // }}
         innerStyle={{
           backgroundColor: "rgb(203,256,123)",
         }}
-        outerStyle={{
-          border: "3px solid rgb(203,256,123)",
-        }}
-      /> */}
+        // outerStyle={{
+        //   border: "3px solid rgb(203,256,123)",
+        // }}
+      />
       <Header />
       <Hero />
       <DataSection />
