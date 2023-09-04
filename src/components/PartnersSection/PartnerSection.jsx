@@ -217,6 +217,7 @@ const PartnerSection = () => {
               display: "flex",
               justifyContent: "center",
               flexDirection: "column",
+              width: "100%",
             }}
           >
             <span className="line-1">
