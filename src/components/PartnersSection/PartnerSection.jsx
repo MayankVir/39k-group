@@ -161,7 +161,7 @@ const TokenContainer = styled(Box)({
 
   "@media (max-width: 800px)": {
     flexDirection: "row",
-    animation: "stripX 30s linear infinite",
+    animation: "stripX 120s linear infinite",
   },
 });
 const ExchangeContainer = styled(Box)({
@@ -179,7 +179,7 @@ const ExchangeContainer = styled(Box)({
     flexDirection: "row",
     gap: "20px",
     height: "100px",
-    animation: "stripX 40s linear infinite",
+    animation: "stripX 80s linear infinite",
     "& img": {
       width: "100px",
     },
