@@ -148,20 +148,48 @@ const Footer = () => {
     message: "",
   });
 
-  const sendForm = () => {
-    if (!Object.values(formValue).every((value) => !!value)) {
-      // Please fill all the fields
-      return;
-    }
+  const sendForm = async () => {
+    if (!Object.values(formValue).every((value) => !!value)) return;
 
-    axios
-      .post("http://localhost:3001/send-email", formValue)
-      .then((response) => {
-        console.log({ response });
-      })
-      .catch((err) => {
-        console.log(err);
+    const { name, email, message } = formValue;
+
+    const apiKey =
+      "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";
+    const sendinblueApiUrl = "https://api.sendinblue.com/v3/smtp/email";
+    const emailData = {
+      sender: { email: "39kgroupwebsite@gmail.com", name: "39K Group" },
+      to: [{ email: "bd@39kpartners.com" }],
+      subject: "New Inquiry from 39k Group Website",
+      textContent: `Dear team,
+
+                    We hope this message finds you well. We are reaching out to inform you that someone has contacted you through the contact form on the website. Below are the details:
+
+                    Name: ${name}
+                    Email: ${email}
+                    Message: ${message}
+
+                    We recommend responding at your earliest convenience to address any inquiries or comments the individual might have.
+
+                    Warm regards,
+
+                    39k Group
+
+                    Note: This is an automated message. Please do not reply directly to this email.`,
+    };
+
+    try {
+      await fetch(sendinblueApiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "api-key": apiKey,
+        },
+        body: JSON.stringify(emailData),
       });
+      console.log("Email sent successfully");
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
   };
 
   return (
