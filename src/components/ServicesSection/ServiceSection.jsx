@@ -61,7 +61,7 @@ const StyledServicesOption = styled("div")({
   background: "rgba(255, 255, 255, 0.15)",
   boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)",
   transition: "500ms",
-  animation: "animateReverse 500ms ease-in-out forwards;",
+  animation: "animateReverse 300ms ease-in-out forwards",
 
   width: "600px",
   height: "150px",
@@ -88,7 +88,7 @@ const StyledServicesOption = styled("div")({
   },
 
   "&:hover": {
-    animation: "animate 500ms ease-in-out forwards",
+    animation: "animate 300ms ease-in-out forwards",
   },
 });
 
@@ -154,102 +154,102 @@ const ServiceSection = () => {
             What we can offer to your business
           </StyledServicesHeader>
           <StyledServicesOptions>
-            <Tilt options={defaultOptions}>
-              <StyledServicesOption>
-                <Box
-                  style={{
-                    display: "flex",
-                    justifyContent: "start",
-                  }}
-                >
-                  <StyledServicesIcon>
-                    <img src={Service1} alt="" />
-                  </StyledServicesIcon>
-                  <div>
-                    <StyledServicesTitle>
-                      Token Project Market Making
-                    </StyledServicesTitle>
-                    <StyledServicesDetails>
-                      Ensuring 24/7 liquidity for 200+ tokens and 30+ spot and
-                      derivative crypto exchanges
-                    </StyledServicesDetails>
-                  </div>
-                </Box>
-              </StyledServicesOption>
-            </Tilt>
+            {/* <Tilt options={defaultOptions}> */}
+            <StyledServicesOption>
+              <Box
+                style={{
+                  display: "flex",
+                  justifyContent: "start",
+                }}
+              >
+                <StyledServicesIcon>
+                  <img src={Service1} alt="" />
+                </StyledServicesIcon>
+                <div>
+                  <StyledServicesTitle>
+                    Token Project Market Making
+                  </StyledServicesTitle>
+                  <StyledServicesDetails>
+                    Ensuring 24/7 liquidity for 200+ tokens and 30+ spot and
+                    derivative crypto exchanges
+                  </StyledServicesDetails>
+                </div>
+              </Box>
+            </StyledServicesOption>
+            {/* </Tilt> */}
 
-            <Tilt options={defaultOptions}>
-              <StyledServicesOption>
-                <Box
-                  style={{
-                    display: "flex",
-                    justifyContent: "start",
-                  }}
-                >
-                  <StyledServicesIcon>
-                    <img src={Service2} alt="" />
-                  </StyledServicesIcon>
-                  <div>
-                    <StyledServicesTitle>
-                      Token Listing and Distribution Advisory
-                    </StyledServicesTitle>
-                    <StyledServicesDetails>
-                      Assisting tokens by connecting them with our network of
-                      exchanges and helping with capital raise by timely
-                      distribution 
-                    </StyledServicesDetails>
-                  </div>
-                </Box>
-              </StyledServicesOption>
-            </Tilt>
+            {/* <Tilt options={defaultOptions}> */}
+            <StyledServicesOption>
+              <Box
+                style={{
+                  display: "flex",
+                  justifyContent: "start",
+                }}
+              >
+                <StyledServicesIcon>
+                  <img src={Service2} alt="" />
+                </StyledServicesIcon>
+                <div>
+                  <StyledServicesTitle>
+                    Token Listing and Distribution Advisory
+                  </StyledServicesTitle>
+                  <StyledServicesDetails>
+                    Assisting tokens by connecting them with our network of
+                    exchanges and helping with capital raise by timely
+                    distribution 
+                  </StyledServicesDetails>
+                </div>
+              </Box>
+            </StyledServicesOption>
+            {/* </Tilt> */}
 
-            <Tilt options={defaultOptions}>
-              <StyledServicesOption>
-                <Box
-                  style={{
-                    display: "flex",
-                    justifyContent: "start",
-                  }}
-                >
-                  <StyledServicesIcon>
-                    <img src={Service3} alt="" />
-                  </StyledServicesIcon>
-                  <div>
-                    <StyledServicesTitle>
-                      Designated Market Making for Trading Venues
-                    </StyledServicesTitle>
-                    <StyledServicesDetails>
-                      Providing end-to-end liquidity solution for all tokens on
-                      an exchange with 99.99% uptime
-                    </StyledServicesDetails>
-                  </div>
-                </Box>
-              </StyledServicesOption>
-            </Tilt>
+            {/* <Tilt options={defaultOptions}> */}
+            <StyledServicesOption>
+              <Box
+                style={{
+                  display: "flex",
+                  justifyContent: "start",
+                }}
+              >
+                <StyledServicesIcon>
+                  <img src={Service3} alt="" />
+                </StyledServicesIcon>
+                <div>
+                  <StyledServicesTitle>
+                    Designated Market Making for Trading Venues
+                  </StyledServicesTitle>
+                  <StyledServicesDetails>
+                    Providing end-to-end liquidity solution for all tokens on an
+                    exchange with 99.99% uptime
+                  </StyledServicesDetails>
+                </div>
+              </Box>
+            </StyledServicesOption>
+            {/* </Tilt> */}
 
-            <Tilt options={defaultOptions}>
-              <StyledServicesOption>
-                <Box
-                  style={{
-                    display: "flex",
-                    justifyContent: "start",
-                  }}
-                >
-                  <StyledServicesIcon>
-                    <img src={Service4} alt="" />
-                  </StyledServicesIcon>
-                  <div>
-                    <StyledServicesTitle>
-                      OTC Solutions for Institutional Investors 
-                    </StyledServicesTitle>
-                    <StyledServicesDetails>
-                      Offering competitive bid-ask quotes for large trade orders
-                      to reduce market impact cost 
-                    </StyledServicesDetails>
-                  </div>
-                </Box>
-              </StyledServicesOption>
-            </Tilt>
+            {/* <Tilt options={defaultOptions}> */}
+            <StyledServicesOption>
+              <Box
+                style={{
+                  display: "flex",
+                  justifyContent: "start",
+                }}
+              >
+                <StyledServicesIcon>
+                  <img src={Service4} alt="" />
+                </StyledServicesIcon>
+                <div>
+                  <StyledServicesTitle>
+                    OTC Solutions for Institutional Investors 
+                  </StyledServicesTitle>
+                  <StyledServicesDetails>
+                    Offering competitive bid-ask quotes for large trade orders
+                    to reduce market impact cost 
+                  </StyledServicesDetails>
+                </div>
+              </Box>
+            </StyledServicesOption>
+            {/* </Tilt> */}
           </StyledServicesOptions>
         </div>
       </StyledServices>
