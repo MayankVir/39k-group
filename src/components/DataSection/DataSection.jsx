@@ -7,16 +7,18 @@ import CountUp from "react-countup";
 import { useIsInViewport } from "../../hooks/useIsInViewport";
 
 const StyledDataContainer = styled(Box)({
-  padding: "100px 50px",
+  margin: "10% 4%",
   display: "flex",
-  flexWrap: "wrap",
-  "@media (max-width: 1100px)": {
-    flexDirection: "column",
-    padding: "50px 25px",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+  gap: "50px",
+  "@media (max-width: 1180px)": {
+    margin: "8% 2%",
     alignItems: "center",
   },
-  "@media (max-width: 800px)": {
-    padding: "25px 10px",
+  "@media (max-width: 425px)": {
+    gap: "10px",
   },
 });
 
@@ -24,12 +26,12 @@ const StyledDataTagline = styled(Box)({
   padding: "30px 50px",
   fontSize: "24px",
   fontWeight: "500",
-  width: "600px",
+  textAlign: "center",
   flex: 0.5,
   background: `linear-gradient(90deg, ${theme.colors.$primary} 0%, ${theme.colors.$lightPrimary} 75%)`,
   "-webkit-background-clip": "text",
   "-webkit-text-fill-color": "transparent",
-  "@media (max-width: 1100px)": {
+  "@media (max-width: 1180px)": {
     padding: "15px 25px",
     fontSize: "16px",
     width: "100%",
@@ -45,42 +47,36 @@ const StyledDataContentContainer = styled(Box)({
   flex: 0.5,
   flexWrap: "wrap",
   marginTop: "15px",
+  gap: "60px",
   "@media (max-width: 1100px)": {
-    justifyContent: "center",
-    width: "600px",
     gap: "45px",
+    justifyContent: "center",
     margin: "25px 0",
     flex: 1,
   },
 
   "@media (max-width: 800px)": {
     width: "100%",
-    columnGap: "25px",
   },
 });
 
 const StyledDataContent = styled(Box)({
-  width: "300px",
-  height: "150px",
-  fontSize: "40px",
+  fontSize: "50px",
   fontWeight: "600",
   color: theme.colors.$primary,
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   transition: "all 200ms ease-in-out",
-  "@media (max-width: 1100px)": {
-    fontSize: "25px",
+  "@media (max-width: 1180px)": {
+    fontSize: "36px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    height: "100px",
-    width: "200px",
   },
 
   "@media (max-width: 524px)": {
-    height: "75px",
-    width: "150px",
+    fontSize: "28px",
   },
 });
 
@@ -97,6 +93,15 @@ const StyledDataContentDetail = styled(Box)({
   },
 });
 
+const DataContentTwoBox = styled(Box)({
+  display: "flex",
+  gap: "60px",
+  "@media (max-width: 665px)": {
+    flexDirection: "column",
+    width: "130px",
+  },
+});
+
 const DataSection = () => {
   const ref = useRef();
   const isInView = useIsInViewport(ref);
@@ -109,69 +114,79 @@ const DataSection = () => {
         our commitment to innovation and excellence
       </StyledDataTagline>
       <StyledDataContentContainer>
-        <StyledDataContent>
-          <Box>
-            $
-            {isInView ? (
-              <CountUp end={5} duration={7} onEnd={() => setOnceViewed(true)} />
-            ) : (
-              5
-            )}
-            B+
-          </Box>
-          <StyledDataContentDetail>
-            Monthly Volume Traded
-          </StyledDataContentDetail>
-        </StyledDataContent>
-        <StyledDataContent>
-          <Box>
-            $
-            {isInView ? (
-              <CountUp
-                end={100}
-                duration={3}
-                onEnd={() => setOnceViewed(true)}
-              />
-            ) : (
-              100
-            )}
-            K+
-          </Box>
-          <StyledDataContentDetail>Daily Transactions </StyledDataContentDetail>
-        </StyledDataContent>
-        <StyledDataContent>
-          <Box>
-            $
-            {isInView ? (
-              <CountUp
-                end={200}
-                duration={3}
-                onEnd={() => setOnceViewed(true)}
-              />
-            ) : (
-              200
-            )}
-            B+
-          </Box>
-          <StyledDataContentDetail>
-            Cumulative Volume Traded
-          </StyledDataContentDetail>
-        </StyledDataContent>
-        <StyledDataContent>
-          <Box>
-            {isInView ? (
-              <CountUp
-                end={400}
-                duration={3}
-                onEnd={() => setOnceViewed(true)}
-              />
-            ) : (
-              400
-            )}
-            +
-          </Box>
-          <StyledDataContentDetail>Pairs Traded </StyledDataContentDetail>
-        </StyledDataContent>
+        <DataContentTwoBox>
+          <StyledDataContent>
+            <Box>
+              $
+              {isInView ? (
+                <CountUp
+                  end={5}
+                  duration={7}
+                  onEnd={() => setOnceViewed(true)}
+                />
+              ) : (
+                5
+              )}
+              B+
+            </Box>
+            <StyledDataContentDetail>
+              Monthly Volume Traded
+            </StyledDataContentDetail>
+          </StyledDataContent>
+          <StyledDataContent>
+            <Box>
+              $
+              {isInView ? (
+                <CountUp
+                  end={100}
+                  duration={3}
+                  onEnd={() => setOnceViewed(true)}
+                />
+              ) : (
+                100
+              )}
+              K+
+            </Box>
+            <StyledDataContentDetail>
+              Daily Transactions{" "}
+            </StyledDataContentDetail>
+          </StyledDataContent>
+        </DataContentTwoBox>
+        <DataContentTwoBox>
+          <StyledDataContent>
+            <Box>
+              $
+              {isInView ? (
+                <CountUp
+                  end={200}
+                  duration={3}
+                  onEnd={() => setOnceViewed(true)}
+                />
+              ) : (
+                200
+              )}
+              B+
+            </Box>
+            <StyledDataContentDetail>
+              Cumulative Volume Traded
+            </StyledDataContentDetail>
+          </StyledDataContent>
+          <StyledDataContent>
+            <Box>
+              {isInView ? (
+                <CountUp
+                  end={400}
+                  duration={3}
+                  onEnd={() => setOnceViewed(true)}
+                />
+              ) : (
+                400
+              )}
+              +
+            </Box>
+            <StyledDataContentDetail>Pairs Traded </StyledDataContentDetail>
+          </StyledDataContent>
+        </DataContentTwoBox>
       </StyledDataContentContainer>
     </StyledDataContainer>
   );
