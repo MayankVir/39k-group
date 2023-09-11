@@ -134,9 +134,8 @@ const Hero = () => {
           </div>
         </StyledHeadline>
         <StyledTagline className="fadeIn1000ms ">
-          39k Group is a high frequency trading firm engaged in digital asset
-          market making to enable the adoption of blockchain technology in
-          developing economies
+          39k Group is a high-frequency trading firm advancing blockchain
+          adoption in developing economies through digital asset market making
         </StyledTagline>
         <Link
           activeClass="active"

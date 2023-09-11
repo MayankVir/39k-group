@@ -1,0 +1,151 @@
+$height: 40px;
+$width: 160px;
+$primary: #531dff;
+
+.buttonContainer {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  background-color: $primary;
+  border: solid 2px white;
+
+  color: white;
+  width: $width;
+  height: $height;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+  &:hover {
+    background-color: white;
+    color: $primary;
+  }
+  &:focus {
+    outline: none;
+  }
+  &::-moz-focus-inner {
+    border: none;
+    outline: none;
+  }
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: white;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 8px;
+    border-left: solid 5px $primary;
+    border-bottom: solid 5px $primary;
+    opacity: 0;
+    transform: rotate(-45deg);
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.circle {
+  animation-delay: 500ms, 3000ms;
+  animation-duration: 300ms, 800ms;
+  animation-timing-function: ease-out, ease-in;
+  animation-fill-mode: forwards, forwards;
+  animation-name: circle, button_grow;
+  &:before {
+    animation-delay: 800ms;
+    animation-duration: 2500ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-name: grow;
+  }
+  &:after {
+    animation-delay: 4500ms;
+    animation-duration: 400ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-name: check;
+  }
+}
+
+.click {
+  animation-delay: 0s, 600ms;
+  animation-duration: 300ms, 100ms;
+  animation-timing-function: ease-in-out, linear;
+  animation-fill-mode: none, forwards;
+  animation-name: bounce, disapear;
+}
+
+@keyframes bounce {
+  30% {
+    font-size: 20px;
+  }
+}
+
+@keyframes circle {
+  100% {
+    width: $height;
+    border: solid 6px #ccc;
+  }
+}
+
+@keyframes disapear {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes grow {
+  99% {
+    width: $height;
+    height: $height;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes button_grow {
+  0% {
+    border: solid 2px white;
+    background-color: white;
+    width: $height;
+  }
+  100% {
+    border: solid 2px white;
+    background-color: white;
+    width: $width;
+  }
+}
+
+@keyframes check {
+  25% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.3) rotate(-45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-45deg);
+  }
+}

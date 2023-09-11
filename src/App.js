@@ -11,9 +11,8 @@ import AnimatedCursor from "react-animated-cursor";
 function App() {
   return (
     <div className="App">
-      <AnimatedCursor
-        // color="203,256,123"
-        color="58, 0, 141"
+      {/* <AnimatedCursor
+        color="203,256,123"
         innerSize={20}
         outerSize={0}
         innerScale={1}
@@ -28,7 +27,7 @@ function App() {
         // outerStyle={{
         //   border: "3px solid rgb(203,256,123)",
         // }}
-      />
+      /> */}
       <Header />
       <Hero />
       <DataSection />

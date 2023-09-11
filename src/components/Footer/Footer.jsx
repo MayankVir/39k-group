@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
@@ -6,8 +6,10 @@ import LinkedinIcon from "../../assets/icons/linkedin.svg";
 import WhatsappIcon from "../../assets/icons/whatsapp.svg";
 import TelegramIcon from "../../assets/icons/telegram.svg";
 import TwitterIcon from "../../assets/icons/twitter.svg";
-import { Button, TextField, Typography } from "@mui/material";
+import { TextField, Typography } from "@mui/material";
 import { Element } from "react-scroll";
+
+import Button from "../Button";
 
 import axios from "axios";
 
@@ -89,13 +91,6 @@ const StyledContactUs = styled("div")({
     color: `${theme.colors.$white} !important`,
   },
 
-  "& button": {
-    backgroundColor: `${theme.colors.$white} !important`,
-    color: `${theme.colors.$primary} !important`,
-    borderRadius: "20px",
-    padding: "5px 50px",
-    margin: "20px 0",
-  },
   "& input": {
     color: `${theme.colors.$white} !important`,
   },
@@ -147,10 +142,10 @@ const Footer = () => {
     email: "",
     message: "",
   });
+  const [isClicked, setIsClicked] = useState(false);
+  const [error, setError] = useState(false);
 
   const sendForm = async () => {
-    if (!Object.values(formValue).every((value) => !!value)) return;
-
     const { name, email, message } = formValue;
 
     const apiKey =
@@ -192,6 +187,25 @@ const Footer = () => {
     }
   };
 
+  const handleSendingForm = () => {
+    if (!Object.values(formValue).every((value) => !!value)) {
+      setError(true);
+      return;
+    }
+    setIsClicked(true);
+    setTimeout(() => {
+      setIsClicked(false);
+    }, 9000);
+
+    sendForm().finally(() => {
+      setFormValue({
+        name: "",
+        email: "",
+        message: "",
+      });
+    });
+  };
+
   return (
     <Element name="contactUs">
       <StyledFooter>
@@ -229,17 +243,14 @@ const Footer = () => {
                 <img
                   src={WhatsappIcon}
                   onClick={() =>
-                    window.open(
-                      "https://www.linkedin.com/company/39kgroup/",
-                      "_blank"
-                    )
+                    window.open("https://wa.me/+918861243538", "_blank")
                   }
                   alt="WhatsappIcon"
                 />
                 <img
                   src={TelegramIcon}
                   onClick={() =>
-                    window.open("https://t.me/@danish_39k", "_blank")
+                    window.open("https://t.me/danish_39k", "_blank")
                   }
                   alt="TelegramIcon"
                 />
@@ -260,15 +271,18 @@ const Footer = () => {
               label="Name"
               variant="standard"
               onChange={(e) => {
+                setError(false);
                 setFormValue((prev) => ({ ...prev, name: e.target.value }));
               }}
             />
             <TextField
+              type="email"
               className="inputField"
               id="email"
               label="Email"
               variant="standard"
               onChange={(e) => {
+                setError(false);
                 setFormValue((prev) => ({ ...prev, email: e.target.value }));
               }}
             />
@@ -278,16 +292,31 @@ const Footer = () => {
               label="Message"
               variant="standard"
               onChange={(e) => {
+                setError(false);
                 setFormValue((prev) => ({ ...prev, message: e.target.value }));
               }}
             />
-            <Button onClick={() => sendForm()}>Send</Button>
+            {error && (
+              <span
+                style={{
+                  fontSize: "12px",
+                }}
+              >
+                Please fill all the fields
+              </span>
+            )}
+            <Button
+              handleClick={handleSendingForm}
+              isClicked={isClicked}
+              setIsClicked={setIsClicked}
+              label="Submit"
+            />
           </StyledContactUs>
         </StyledFooterContainer>
         <hr />
         <StyledTnC>
           <div className="disclaimer">
-            Disclaimer – 39k Group comprises 39k Partners LLP, White Squire
+            Disclaimer - 39k Group comprises 39k Partners LLP, White Squire
             Technologies LLP, White Squire Global DMCC and White Squire Global
             (BVI) Limited, all of which are proprietary trading firms held by
             the same UBOs. There is no other legal relation between the

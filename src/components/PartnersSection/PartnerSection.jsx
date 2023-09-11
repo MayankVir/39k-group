@@ -208,7 +208,7 @@ const PartnerSection = () => {
     <Element name="partners">
       <StyledPartners>
         <StyledPartnersHeader>
-          Our growing partnerships connects us to the world 
+          Our growing partnerships connect us to the world 
         </StyledPartnersHeader>
         <StyledPartnersContainer>
           <div
