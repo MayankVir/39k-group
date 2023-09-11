@@ -12,9 +12,10 @@ function App() {
   return (
     <div className="App">
       <AnimatedCursor
-        color="203,256,123"
+        // color="203,256,123"
+        color="58, 0, 141"
         innerSize={20}
-        outerSize={75}
+        outerSize={0}
         innerScale={1}
         outerScale={1.7}
         // outerAlpha={0}
@@ -22,7 +23,7 @@ function App() {
         //   mixBlendMode: "exclusion",
         // }}
         innerStyle={{
-          backgroundColor: "rgb(203,256,123)",
+          backgroundColor: "rgb(58, 0, 141)",
         }}
         // outerStyle={{
         //   border: "3px solid rgb(203,256,123)",
