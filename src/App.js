@@ -1,3 +1,4 @@
+import CareerSection from "./components/CareerSection/CareerSection";
 import DataSection from "./components/DataSection/DataSection";
 import FaqSection from "./components/FaqSection/FaqSection";
 import Footer from "./components/Footer/Footer";
@@ -34,6 +35,7 @@ function App() {
       <ServiceSection />
       <PartnerSection />
       <FaqSection />
+      <CareerSection />
       <Footer />
     </div>
   );
