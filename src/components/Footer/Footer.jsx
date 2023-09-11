@@ -196,7 +196,14 @@ const Footer = () => {
     setTimeout(() => {
       setIsClicked(false);
     }, 9000);
-    sendForm();
+
+    sendForm().finally(() => {
+      setFormValue({
+        name: "",
+        email: "",
+        message: "",
+      });
+    });
   };
 
   return (
