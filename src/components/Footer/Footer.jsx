@@ -144,6 +144,7 @@ const Footer = () => {
   });
   const [isClicked, setIsClicked] = useState(false);
   const [error, setError] = useState(false);
+  const [isEmail, setIsEmail] = useState(true);
 
   const sendForm = async () => {
     const { name, email, message } = formValue;
@@ -188,7 +189,10 @@ const Footer = () => {
   };
 
   const handleSendingForm = () => {
-    if (!Object.values(formValue).every((value) => !!value)) {
+    if (
+      !Object.values(formValue).every((value) => !!value) ||
+      isEmail === false
+    ) {
       setError(true);
       return;
     }
@@ -204,6 +208,11 @@ const Footer = () => {
         message: "",
       });
     });
+  };
+
+  const checkIfValidEmail = (email) => {
+    const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return pattern.test(email);
   };
 
   return (
@@ -270,27 +279,40 @@ const Footer = () => {
               id="name"
               label="Name"
               variant="standard"
+              value={formValue?.name ?? ""}
               onChange={(e) => {
                 setError(false);
                 setFormValue((prev) => ({ ...prev, name: e.target.value }));
               }}
             />
             <TextField
-              type="email"
               className="inputField"
               id="email"
               label="Email"
               variant="standard"
+              value={formValue?.email ?? ""}
               onChange={(e) => {
                 setError(false);
+                setIsEmail(checkIfValidEmail(e.target.value));
                 setFormValue((prev) => ({ ...prev, email: e.target.value }));
               }}
             />
+            {!isEmail && (
+              <span
+                style={{
+                  color: "white",
+                  fontSize: "10px",
+                }}
+              >
+                Please enter a valid email
+              </span>
+            )}
             <TextField
               className="inputField"
               id="message"
               label="Message"
               variant="standard"
+              value={formValue?.message ?? ""}
               onChange={(e) => {
                 setError(false);
                 setFormValue((prev) => ({ ...prev, message: e.target.value }));
