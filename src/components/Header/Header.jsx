@@ -72,6 +72,7 @@ const Header = () => {
           { label: "Home", value: "home" },
           { label: "Services", value: "services" },
           { label: "Partners", value: "partners" },
+          { label: "Careers", value: "careers" },
           { label: "Contact Us", value: "contactUs" },
         ].map((option) => (
           <Link
@@ -121,6 +122,7 @@ const Header = () => {
                 { label: "Home", value: "home" },
                 { label: "Services", value: "services" },
                 { label: "Partners", value: "partners" },
+                { label: "Careers", value: "careers" },
                 { label: "Contact Us", value: "contactUs" },
               ].map((option) => (
                 <Link
