@@ -50,6 +50,9 @@ const StyledFaqContent = styled("div")({
   display: "flex",
   flexDirection: "column",
   gap: "20px",
+  "& .Mui-expanded": {
+    transform: "scale(1.03)",
+  },
   "& .accordion-title": {
     fontSize: "18px",
     color: theme.colors.$primary,
@@ -61,6 +64,10 @@ const StyledFaqContent = styled("div")({
   },
   "& .MuiPaper-root": {
     boxShadow: "none",
+    transition: "all 200ms ease-in",
+    "&:hover": {
+      transform: "scale(1.03)",
+    },
   },
   "@media (max-width: 1100px)": {
     "& .accordion-title": {
