@@ -24,6 +24,7 @@ const StyledPartnersHeader = styled("div")({
   fontSize: "34px",
   fontWeight: "400",
   padding: "40px 0",
+  paddingBottom: "10px",
   width: "100%",
   textAlign: "center",
   display: "flex",

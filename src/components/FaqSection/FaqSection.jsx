@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 import {
@@ -51,7 +51,7 @@ const StyledFaqContent = styled("div")({
   flexDirection: "column",
   gap: "20px",
   "& .Mui-expanded": {
-    transform: "scale(1.03)",
+    transform: "scale(1.01)",
   },
   "& .accordion-title": {
     fontSize: "18px",
@@ -66,7 +66,7 @@ const StyledFaqContent = styled("div")({
     boxShadow: "none",
     transition: "all 200ms ease-in",
     "&:hover": {
-      transform: "scale(1.03)",
+      transform: "scale(1.01)",
     },
   },
   "@media (max-width: 1100px)": {
@@ -88,12 +88,19 @@ const StyledFaqContent = styled("div")({
 });
 
 const FaqSection = () => {
+  const [expanded, setExpanded] = useState();
   return (
     <StyledFaq>
       <StyledFaqHeader>Frequently Asked Questions</StyledFaqHeader>
       <StyledFaqContent>
-        {FAQs.map(({ title, body }) => (
-          <AccordionComponent title={title} body={body} />
+        {FAQs.map(({ title, body }, idx) => (
+          <AccordionComponent
+            title={title}
+            body={body}
+            expanded={expanded}
+            setExpanded={setExpanded}
+            idx={idx + 1}
+          />
         ))}
       </StyledFaqContent>
     </StyledFaq>
@@ -102,8 +109,11 @@ const FaqSection = () => {
 
 export default FaqSection;
 
-const AccordionComponent = ({ title, body }) => (
-  <Accordion>
+const AccordionComponent = ({ title, body, expanded, setExpanded, idx }) => (
+  <Accordion
+    expanded={expanded === "panel" + idx}
+    onChange={() => setExpanded("panel" + idx)}
+  >
     <AccordionSummary
       expandIcon={<ExpandMoreIcon />}
       aria-controls="panel1a-content"

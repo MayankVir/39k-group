@@ -4,8 +4,9 @@ $primary: #531dff;
 
 .buttonContainer {
   position: relative;
-  width: 100%;
+  width: 35%;
   text-align: center;
+  margin: 10px 0;
 }
 
 button {
@@ -13,13 +14,13 @@ button {
   border: solid 2px white;
 
   color: white;
-  width: $width;
+  width: 100%;
   height: $height;
   font-size: 14px;
   font-weight: bold;
   border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.4s ease;
+  transition: background-color 0.2s ease;
   &:hover {
     background-color: white;
     color: $primary;
@@ -64,21 +65,21 @@ button {
 }
 
 .circle {
-  animation-delay: 500ms, 3000ms;
-  animation-duration: 300ms, 800ms;
+  animation-delay: 500ms, 1600ms;
+  animation-duration: 200ms, 200ms;
   animation-timing-function: ease-out, ease-in;
   animation-fill-mode: forwards, forwards;
   animation-name: circle, button_grow;
   &:before {
-    animation-delay: 800ms;
-    animation-duration: 2500ms;
+    animation-delay: 700ms;
+    animation-duration: 1000ms;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     animation-name: grow;
   }
   &:after {
-    animation-delay: 4500ms;
-    animation-duration: 400ms;
+    animation-delay: 2000ms;
+    animation-duration: 200ms;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     animation-name: check;
@@ -86,7 +87,7 @@ button {
 }
 
 .click {
-  animation-delay: 0s, 600ms;
+  animation-delay: 0s, 300ms;
   animation-duration: 300ms, 100ms;
   animation-timing-function: ease-in-out, linear;
   animation-fill-mode: none, forwards;

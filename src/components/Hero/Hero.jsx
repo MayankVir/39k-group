@@ -63,7 +63,7 @@ const StyledHeadline = styled(Box)({
 });
 
 const StyledTagline = styled(Box)({
-  fontSize: "17px",
+  fontSize: "19px",
   color: theme.colors.$primary,
   marginTop: "50px",
   padding: "0 20px",

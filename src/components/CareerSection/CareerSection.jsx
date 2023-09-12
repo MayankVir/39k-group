@@ -43,12 +43,12 @@ const StyledCareersContainer = styled("div")({
   margin: "20px 0",
   width: "100%",
   gap: "50px",
-  padding: "0px 100px",
+  padding: "0px 50px",
   overflow: "hidden",
   textAlign: "justify",
 
   "& .details": {
-    fontSize: "22px",
+    fontSize: "20px",
     color: theme.colors.$primary,
   },
 
@@ -73,8 +73,16 @@ const StyledOpenRoles = styled(Box)({
   fontWeight: "500",
   cursor: "pointer",
   textTransform: "uppercase",
+  background: theme.colors.$primary,
+  color: theme.colors.$white,
+  border: "2px solid " + theme.colors.$white,
+  borderRadius: "10px",
+  padding: "10px 20px",
+  transition: "all 100ms ease-in",
   "&:hover": {
-    textDecoration: "underline",
+    background: theme.colors.$white,
+    color: theme.colors.$primary,
+    border: "2px solid " + theme.colors.$primary,
   },
   "@media (max-width: 1100px)": {
     fontSize: "18px",
@@ -88,6 +96,14 @@ const StyledReachOut = styled(Box)({
   color: theme.colors.$primary,
   fontSize: "22px",
   marginBottom: " 50px",
+  "& .email": {
+    color: theme.colors.$lightPrimary,
+  },
+  "& .email:hover": {
+    cursor: "pointer",
+    fontWeight: "600",
+    textDecoration: "underline",
+  },
   "@media (max-width: 1100px)": {
     fontSize: "18px",
   },
@@ -106,14 +122,10 @@ const CareerSection = () => {
         </StyledCareersHeader>
         <StyledCareersContainer>
           <Box className="details">
-            At 39k, we stand at the forefront of the crypto revolution, shaping
-            the future of digital trading. Our team is a blend of visionaries,
-            innovators, and financial experts, relentlessly pursuing excellence
-            in a rapidly evolving marketplace. If you're passionate about
-            crypto, and eager to push the boundaries of what's possible, you
-            might just be the next member of our family. Explore our
-            opportunities and embark on a career where every day is a new
-            horizon.
+            At 39k, we stand at the forefront of the crypto revolution. Our team
+            is a blend of visionaries and innovators. If you're driven by
+            crypto's potential, then explore our opportunities and embark on a
+            career where every day is a new horizon.
           </Box>
           <StyledOpenRoles
             onClick={() =>
@@ -127,13 +139,9 @@ const CareerSection = () => {
           </StyledOpenRoles>
           <StyledReachOut>
             Please reach out to us at{" "}
-            <span
-              style={{
-                textDecoration: "underline",
-              }}
-            >
+            <a href="mailto:hr@39kpartners.com" className="email">
               hr@39kpartners.com
-            </span>
+            </a>
           </StyledReachOut>
         </StyledCareersContainer>
       </StyledCareers>

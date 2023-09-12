@@ -111,7 +111,7 @@ const DataSection = () => {
     <StyledDataContainer>
       <StyledDataTagline ref={ref}>
         Over the years, 39K has evolved into a dominant market maker, owing to
-        our commitment to innovation and excellence
+        <br /> our commitment to innovation and excellence
       </StyledDataTagline>
       <StyledDataContentContainer>
         <DataContentTwoBox>
