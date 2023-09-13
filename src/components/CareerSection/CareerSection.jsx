@@ -94,7 +94,7 @@ const StyledOpenRoles = styled(Box)({
 
 const StyledReachOut = styled(Box)({
   color: theme.colors.$primary,
-  fontSize: "22px",
+  fontSize: "20px",
   marginBottom: " 50px",
   "& .email": {
     color: theme.colors.$lightPrimary,

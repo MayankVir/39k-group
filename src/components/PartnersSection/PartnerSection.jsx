@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 import { Element } from "react-scroll";
@@ -68,7 +68,7 @@ const StyledPartnersContainer = styled("div")({
   },
 });
 
-const TokenContainer = styled(Box)({
+const TokenContainer = styled(Box)(({ isPaused }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -78,17 +78,21 @@ const TokenContainer = styled(Box)({
   gap: "60px",
   animation: "stripX 4150s linear infinite",
 
+  animationPlayState: isPaused ? "paused" : "running",
+
   "@media (max-width: 800px)": {
     flexDirection: "row",
   },
-});
-const ExchangeContainer = styled(Box)({
+}));
+const ExchangeContainer = styled(Box)(({ isPaused }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   gap: "60px",
   zIndex: -1,
   animation: "stripX 4000s linear infinite",
+
+  animationPlayState: isPaused ? "paused" : "running",
   "@media (max-width: 1100px)": {
     "& img": {
       width: "125px",
@@ -102,15 +106,16 @@ const ExchangeContainer = styled(Box)({
       width: "100px",
     },
   },
-});
+}));
 const ExchangeTokenContainer = styled(Box)({
-  padding: "50px 0",
+  padding: "20px 0",
   gap: "50px",
   display: "flex",
   alignItems: "flex-start",
   flexDirection: "column",
   background:
     "linear-gradient(to right, rgb(255 255 255) 7%, rgba(21, 21, 46, 0) 25%, rgba(21, 21, 46, 0) 75%, rgb(255 255 255) 95%)",
+
   "@media (max-width: 1100px)": {
     "& img": {
       width: "125px",
@@ -126,6 +131,7 @@ const ExchangeTokenContainer = styled(Box)({
 });
 
 const PartnerSection = () => {
+  const [isPaused, setIsPaused] = useState(false);
   return (
     <Element name="partners">
       <StyledPartners>
@@ -140,7 +146,7 @@ const PartnerSection = () => {
               flexDirection: "column",
               alignItems: "center",
               width: "100%",
-              padding: "50px",
+              padding: "30px",
             }}
           >
             <span className="line-1">
@@ -148,8 +154,11 @@ const PartnerSection = () => {
             </span>
             <span className="line-2">Don't just take our word for it</span>
           </div>
-          <ExchangeTokenContainer>
-            <ExchangeContainer>
+          <ExchangeTokenContainer
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <ExchangeContainer isPaused={isPaused}>
               {[
                 ...allExchanges,
                 ...allExchanges,
@@ -192,7 +201,7 @@ const PartnerSection = () => {
                 />
               ))}
             </ExchangeContainer>
-            <TokenContainer>
+            <TokenContainer isPaused={isPaused}>
               {[
                 ...allTokens,
                 ...allTokens,
