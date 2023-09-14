@@ -51,9 +51,11 @@ const StyledFaqHeader = styled("div")({
   },
   "@media (max-width: 1100px)": {
     gap: "10px",
-
     padding: "25px",
     fontSize: "20px",
+    "& .tagline": {
+      fontSize: "12px",
+    },
   },
   "@media (max-width: 800px)": {
     width: "100%",
@@ -61,10 +63,6 @@ const StyledFaqHeader = styled("div")({
     gap: "5px",
     padding: "30px",
     fontSize: "18px",
-  },
-  "@media (max-width: 500px)": {
-    fontSize: "16px",
-
     "& .tagline": {
       fontSize: "10px",
     },
