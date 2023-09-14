@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 import {
@@ -12,6 +12,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import { FAQs } from "./constants";
+import { useIsInViewport } from "../../hooks/useIsInViewport";
 
 const StyledFaq = styled("div")({
   display: "flex",
@@ -32,6 +33,7 @@ const StyledFaq = styled("div")({
 });
 
 const StyledFaqHeader = styled("div")({
+  opacity: 0,
   textAlign: "left",
   height: "100%",
   color: theme.colors.$white,
@@ -113,9 +115,25 @@ const StyledFaqContent = styled("div")({
 
 const FaqSection = () => {
   const [expanded, setExpanded] = useState("panel1");
+  const [faqsInView, setFaqsInView] = useState(false);
+  const faqsRef = useRef();
+  const isInViewport = useIsInViewport(faqsRef);
+
+  useEffect(() => {
+    if (isInViewport) setFaqsInView(true);
+    else setFaqsInView(false);
+  }, [isInViewport]);
+
   return (
     <StyledFaq>
-      <StyledFaqHeader>
+      <StyledFaqHeader
+        ref={faqsRef}
+        style={{
+          ...(faqsInView && {
+            animation: "bottomFadeOut 1200ms 500ms forwards",
+          }),
+        }}
+      >
         Frequently Asked Questions <br />
         <span className="tagline">
           Ask anything you need to know about our products and services.

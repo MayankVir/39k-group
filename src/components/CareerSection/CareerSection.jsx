@@ -123,13 +123,15 @@ const CareerSection = () => {
   const isInViewport = useIsInViewport(careersRef);
 
   useEffect(() => {
-    if (careersInView) return;
+    // if (careersInView) return;
     if (isInViewport) setCareersInView(true);
+    else setCareersInView(false);
   }, [isInViewport]);
   return (
     <Element name="careers">
-      <StyledCareers ref={careersRef}>
+      <StyledCareers>
         <StyledCareersHeader
+          ref={careersRef}
           style={{
             ...(careersInView && {
               animation: "bottomFadeOut 1200ms 500ms forwards",
