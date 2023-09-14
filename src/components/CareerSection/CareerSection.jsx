@@ -123,7 +123,6 @@ const CareerSection = () => {
   const isInViewport = useIsInViewport(careersRef);
 
   useEffect(() => {
-    // if (careersInView) return;
     if (isInViewport) setCareersInView(true);
     else setCareersInView(false);
   }, [isInViewport]);
@@ -134,7 +133,7 @@ const CareerSection = () => {
           ref={careersRef}
           style={{
             ...(careersInView && {
-              animation: "bottomFadeOut 1200ms 500ms forwards",
+              animation: "bottomFadeOut 1200ms 300ms forwards",
             }),
           }}
         >
@@ -143,7 +142,7 @@ const CareerSection = () => {
         <StyledCareersContainer
           style={{
             ...(careersInView && {
-              animation: "bottomFadeOut 1000ms 800ms forwards",
+              animation: "bottomFadeOut 1000ms 600ms forwards",
             }),
           }}
         >

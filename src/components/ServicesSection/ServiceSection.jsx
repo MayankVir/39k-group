@@ -125,8 +125,8 @@ const ServiceSection = () => {
   const isInViewport = useIsInViewport(serviceRef);
 
   useEffect(() => {
-    if (servicesInView) return;
     if (isInViewport) setServicesInView(true);
+    else setServicesInView(false);
   }, [isInViewport]);
 
   const defaultOptions = {

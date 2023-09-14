@@ -33,7 +33,6 @@ const StyledFaq = styled("div")({
 });
 
 const StyledFaqHeader = styled("div")({
-  opacity: 0,
   textAlign: "left",
   height: "100%",
   color: theme.colors.$white,
@@ -126,14 +125,7 @@ const FaqSection = () => {
 
   return (
     <StyledFaq>
-      <StyledFaqHeader
-        ref={faqsRef}
-        style={{
-          ...(faqsInView && {
-            animation: "bottomFadeOut 1200ms 500ms forwards",
-          }),
-        }}
-      >
+      <StyledFaqHeader ref={faqsRef}>
         Frequently Asked Questions <br />
         <span className="tagline">
           Ask anything you need to know about our products and services.

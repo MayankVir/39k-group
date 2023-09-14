@@ -180,7 +180,7 @@
 .fadeIn500ms {
   opacity: 0;
   animation: fadeIn 2000ms ease forwards;
-  animation-delay: 500ms;
+  animation-delay: 200ms;
 }
 
 .fadeIn1000ms {
