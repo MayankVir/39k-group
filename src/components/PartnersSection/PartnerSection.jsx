@@ -8,6 +8,8 @@ import { allExchanges, allTokens } from "./constants";
 
 const StyledPartners = styled("div")({
   padding: "20px 0",
+  paddingTop: "35px",
+  paddingBottom: "55px",
   width: "100%",
   "@media (max-width: 1100px)": {
     padding: "15px 0",
@@ -51,7 +53,7 @@ const StyledPartnersContainer = styled("div")({
   width: "100%",
   overflow: "hidden",
   "& .line-1": {
-    fontSize: "16px",
+    fontSize: "18px",
     color: theme.colors.$primary,
     opacity: 0.8,
   },
@@ -156,7 +158,7 @@ const PartnerSection = () => {
               flexDirection: "column",
               alignItems: "center",
               width: "100%",
-              padding: "30px",
+              padding: "50px",
             }}
           >
             <span className="line-1">

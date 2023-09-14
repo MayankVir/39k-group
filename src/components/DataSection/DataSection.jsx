@@ -7,7 +7,8 @@ import CountUp from "react-countup";
 import { useIsInViewport } from "../../hooks/useIsInViewport";
 
 const StyledDataContainer = styled(Box)({
-  margin: "10% 4%",
+  margin: "5%",
+  marginBottom: "calc(5% + 30px )",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -121,7 +122,7 @@ const DataSection = () => {
               {isInView ? (
                 <CountUp
                   end={5}
-                  duration={7}
+                  duration={5}
                   onEnd={() => setOnceViewed(true)}
                 />
               ) : (
