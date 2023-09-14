@@ -36,6 +36,11 @@ const StyledPartnersHeader = styled("div")({
   "@media (max-width: 800px)": {
     fontSize: "22px",
   },
+  "@media (max-width: 500px)": {
+    fontSize: "18px",
+    padding: "40px 20px",
+    paddingBottom: "10px",
+  },
 });
 
 const StyledPartnersContainer = styled("div")({
@@ -57,13 +62,18 @@ const StyledPartnersContainer = styled("div")({
     lineHeight: "30px",
     textAlign: "center",
   },
-  "@media (max-width: 1100px)": {
-    // padding: "0px 50px",
-  },
   "@media (max-width: 800px)": {
     flexDirection: "column",
     "& div": {
       textAlign: "center",
+    },
+    "& .line-1": {
+      fontSize: "12px",
+      color: theme.colors.$primary,
+      opacity: 0.8,
+    },
+    "& .line-2": {
+      fontSize: "16px",
     },
   },
 });

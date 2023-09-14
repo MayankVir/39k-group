@@ -12,7 +12,7 @@ import { theme } from "../../theme";
 const StyledHeader = styled(Box)({
   display: "flex",
   padding: "15px 50px",
-  height: "8vh",
+
   justifyContent: "space-between",
   alignItems: "center",
   "@media (max-width: 1100px)": {
@@ -66,7 +66,14 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <img src={logo} alt="" />
+      <img
+        src={logo}
+        alt=""
+        height={"60px"}
+        style={{
+          marginLeft: "10px",
+        }}
+      />
       <StyledHeaderOptions className="longMenu">
         {[
           { label: "Home", value: "home" },
