@@ -124,8 +124,8 @@ const FaqSection = () => {
   }, [isInViewport]);
 
   return (
-    <StyledFaq>
-      <StyledFaqHeader ref={faqsRef}>
+    <StyledFaq ref={faqsRef}>
+      <StyledFaqHeader>
         Frequently Asked Questions <br />
         <span className="tagline">
           Ask anything you need to know about our products and services.
