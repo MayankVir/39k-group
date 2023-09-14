@@ -128,9 +128,8 @@ const CareerSection = () => {
   }, [isInViewport]);
   return (
     <Element name="careers">
-      <StyledCareers>
+      <StyledCareers ref={careersRef}>
         <StyledCareersHeader
-          ref={careersRef}
           style={{
             ...(careersInView && {
               animation: "bottomFadeOut 1200ms 300ms forwards",
