@@ -1,8 +1,9 @@
 import { Box } from "@mui/material";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 import { Element } from "react-scroll";
+import { useIsInViewport } from "../../hooks/useIsInViewport";
 
 const StyledCareers = styled("div")({
   padding: "20px 100px",
@@ -16,6 +17,7 @@ const StyledCareers = styled("div")({
 });
 
 const StyledCareersHeader = styled("div")({
+  opacity: 0,
   background: `linear-gradient(90deg, ${theme.colors.$primary} 0%, ${theme.colors.$lightPrimary} 75%)`,
   "-webkit-background-clip": "text",
   "-webkit-text-fill-color": "transparent",
@@ -36,6 +38,8 @@ const StyledCareersHeader = styled("div")({
 });
 
 const StyledCareersContainer = styled("div")({
+  opacity: 0,
+
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
@@ -114,13 +118,33 @@ const StyledReachOut = styled(Box)({
 });
 
 const CareerSection = () => {
+  const [careersInView, setCareersInView] = useState(false);
+  const careersRef = useRef();
+  const isInViewport = useIsInViewport(careersRef);
+
+  useEffect(() => {
+    if (careersInView) return;
+    if (isInViewport) setCareersInView(true);
+  }, [isInViewport]);
   return (
     <Element name="careers">
-      <StyledCareers>
-        <StyledCareersHeader>
+      <StyledCareers ref={careersRef}>
+        <StyledCareersHeader
+          style={{
+            ...(careersInView && {
+              animation: "bottomFadeOut 1200ms 500ms forwards",
+            }),
+          }}
+        >
           Shape Your Future with 39k Group
         </StyledCareersHeader>
-        <StyledCareersContainer>
+        <StyledCareersContainer
+          style={{
+            ...(careersInView && {
+              animation: "bottomFadeOut 1000ms 800ms forwards",
+            }),
+          }}
+        >
           <Box className="details">
             At 39k, we stand at the forefront of the crypto revolution. Our team
             is a blend of visionaries and innovators. If you're driven by

@@ -198,6 +198,17 @@
   animation: smoothbounceball 0.5s cubic-bezier(0.5, 0.05, 1, 0.5);
 }
 
+@keyframes bottomFadeOut {
+  0% {
+    transform: translateY(35px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
 @keyframes drop-in {
   from {
     opacity: 0;
