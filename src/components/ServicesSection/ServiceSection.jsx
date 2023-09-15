@@ -9,7 +9,6 @@ import Service4 from "../../assets/icons/service4.svg";
 import { Element } from "react-scroll";
 import { useIsInViewport } from "../../hooks/useIsInViewport";
 import { Box } from "@mui/material";
-import { Tilt } from "react-tilt";
 
 const StyledServices = styled("div")({
   padding: "20px 0",
@@ -129,23 +128,6 @@ const ServiceSection = () => {
     else setServicesInView(false);
   }, [isInViewport]);
 
-  const defaultOptions = {
-    // reverse: false, // reverse the tilt direction
-    // max: 15, // max tilt rotation (degrees)
-    // perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-    // scale: 1.05, // 2 = 200%, 1.5 = 150%, etc..
-
-    // easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
-    max: 15,
-    perspective: 1500,
-    easing: "cubic-bezier(.03,.98,.52,.99)",
-    transition: 300,
-    speed: 500,
-    glare: false,
-    maxGlare: 0.2,
-    scale: 1.05,
-  };
-
   return (
     <Element name="services">
       <StyledServices>
@@ -154,7 +136,6 @@ const ServiceSection = () => {
             What we can offer to your business
           </StyledServicesHeader>
           <StyledServicesOptions>
-            {/* <Tilt options={defaultOptions}> */}
             <StyledServicesOption>
               <Box
                 style={{
@@ -176,9 +157,7 @@ const ServiceSection = () => {
                 </div>
               </Box>
             </StyledServicesOption>
-            {/* </Tilt> */}
 
-            {/* <Tilt options={defaultOptions}> */}
             <StyledServicesOption>
               <Box
                 style={{
@@ -201,9 +180,7 @@ const ServiceSection = () => {
                 </div>
               </Box>
             </StyledServicesOption>
-            {/* </Tilt> */}
 
-            {/* <Tilt options={defaultOptions}> */}
             <StyledServicesOption>
               <Box
                 style={{
@@ -225,9 +202,7 @@ const ServiceSection = () => {
                 </div>
               </Box>
             </StyledServicesOption>
-            {/* </Tilt> */}
 
-            {/* <Tilt options={defaultOptions}> */}
             <StyledServicesOption>
               <Box
                 style={{
@@ -249,7 +224,6 @@ const ServiceSection = () => {
                 </div>
               </Box>
             </StyledServicesOption>
-            {/* </Tilt> */}
           </StyledServicesOptions>
         </div>
       </StyledServices>
