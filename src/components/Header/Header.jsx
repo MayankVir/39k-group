@@ -72,7 +72,9 @@ const Header = () => {
         height={"60px"}
         style={{
           marginLeft: "10px",
+          cursor: "pointer",
         }}
+        onClick={() => window.open("https://39k.group", "_self")}
       />
       <StyledHeaderOptions className="longMenu">
         {[
